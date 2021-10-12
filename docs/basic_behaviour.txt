@@ -1,0 +1,15 @@
+User registers in the webapp using a webpage
+
+User creates a key to access to an API
+
+User sends data to the webapp API using the API key
+
+Webapp stores the data in a database
+
+User visits a webpage using login and password
+
+Webpage retrieves data from database
+
+User chooses some options(date, cathegory, total sum)
+
+Webpage retrieves new data from database according to the choices
