@@ -22,7 +22,7 @@ func TestWebapp(t *testing.T) {
 var _ = BeforeSuite(func() {
 	port:="8000"
 	go main.StartSrv(port)
-	time.Sleep(10)
+	time.Sleep(1000 * time.Millisecond)
 })
 
 var _ = Describe("Webapp", func() {
@@ -33,7 +33,6 @@ var _ = Describe("Webapp", func() {
 		if err != nil {
 			panic("Error request: " + err.Error())
 		}
-        time.Sleep(10)
         body, err := ioutil.ReadAll(resp.Body)
         if err != nil{
         	panic("error body")
@@ -52,7 +51,6 @@ var _ = Describe("Webapp", func() {
 		if err != nil {
 			panic("Error request: " + err.Error())
 		}
-        time.Sleep(10)
         body, err := ioutil.ReadAll(resp.Body)
         if err != nil{
         	panic("error body")
@@ -71,7 +69,6 @@ var _ = Describe("Webapp", func() {
 		if err != nil {
 			panic("Error request: " + err.Error())
 		}
-        time.Sleep(10)
         body, err := ioutil.ReadAll(resp.Body)
         if err != nil{
         	panic("error body")
@@ -90,7 +87,6 @@ var _ = Describe("Webapp", func() {
 		if err != nil {
 			panic("Error request: " + err.Error())
 		}
-        time.Sleep(10)
         body, err := ioutil.ReadAll(resp.Body)
         if err != nil{
         	panic("error body")
@@ -109,7 +105,6 @@ var _ = Describe("Webapp", func() {
 		if err != nil {
 			panic("Error request: " + err.Error())
 		}
-        time.Sleep(10)
         body, err := ioutil.ReadAll(resp.Body)
         if err != nil{
         	panic("error body")
