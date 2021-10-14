@@ -4,6 +4,7 @@ go 1.13
 
 require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
+	github.com/lib/pq v1.10.3
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.16.0
 	golang.org/x/net v0.0.0-20211011170408-caeb26a5c8c0 // indirect
