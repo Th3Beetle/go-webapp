@@ -8,8 +8,8 @@ Webapp stores the data in a database
 
 User visits a webpage using login and password
 
-Webpage retrieves data from database
+Webapp retrieves data from database
 
 User chooses some options(date, cathegory, total sum)
 
-Webpage retrieves new data from database according to the choices
+Webapp retrieves new data from database according to the choices

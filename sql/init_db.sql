@@ -36,7 +36,7 @@ create table users (
 	login text,
 	password text,
 	date_created timestamp,
-	is_active boolean
+	is_active boolean DEFAULT true
 )
 
 create table users_id_cathegory_id (
