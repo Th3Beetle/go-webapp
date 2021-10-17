@@ -9,10 +9,7 @@ import(
 )
 
 
-func StartSrv(port string){
-	if port == "" {
-		port = "8080"
-	}
+func StartSrv(port int){
 	mux := http.NewServeMux()
     
 	mux.HandleFunc("/", handlers.IndexHandler)
@@ -20,10 +17,10 @@ func StartSrv(port string){
 	mux.HandleFunc("/login", handlers.LoginHandler)
 	mux.HandleFunc("/statistics", handlers.StatisticsHandler)
 	mux.HandleFunc("/key", handlers.KeyHandler)
-	http.ListenAndServe(":"+port, mux)
+	http.ListenAndServe(":"+strconv.Itoa(port), mux)
 }
 
 func main(){
 	port := config.GetPort()
-	StartSrv(strconv.Itoa(port))
+	StartSrv(port)
 }

@@ -4,7 +4,6 @@ import(
     "os"
     "encoding/json"
     "io/ioutil"
-    "strconv"
 
 )
 
@@ -12,14 +11,14 @@ var config Config
 
 type DbConfig struct {
 	Host	string `json:"host"`
-	Port	string `json:"port"`
+	Port	int	`json:"port"`
 	User	string `json:"user"`
 	Password	string `json:"password"`
 	DbName	string	`json:"db_name"`
 }
 
 type Config struct {
-	Port	string `json:"port"`
+	Port	int `json:"port"`
 	Db	DbConfig	`json:"db"`
 }
 
@@ -39,11 +38,7 @@ func GetDbHost() string {
 }
 
 func GetDbPort() int {
-	port, err := strconv.Atoi(config.Db.Port)
-	if err != nil {
-		panic("cant parse port")
-	}
-	return port
+	return config.Db.Port
 }
 
 func GetDbUser() string {
@@ -59,9 +54,5 @@ func GetDbName() string {
 }
 
 func GetPort() int {
-	port, err := strconv.Atoi(config.Port)
-	if err != nil {
-		panic("cant parse port")
-	}
-	return port
+	return config.Port
 }
