@@ -18,14 +18,9 @@ create table expenses (
 	exp_comment text
 )
 
-create table earnings (
+create table cathegory (
     id serial,
 	cathegory text
-)
-
-create table earnings (
-    id serial,
-	name text
 )
 
 create table user_data (
@@ -48,4 +43,10 @@ create table users_id_cathegory_id (
     id serial,
 	users_id integer,
 	cathegory_id integer
+)
+
+create table keys (
+    id serial,
+	users_id integer,
+	api_key text
 )
