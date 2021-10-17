@@ -4,23 +4,21 @@ import (
     "database/sql"
     "fmt"
     _ "github.com/lib/pq"
+    "go-webapp/webapp/config"
 )
 
-const (
-    host = "localhost"
-    port = 5432
-    user = "go_test"
-    password = "test"
-    dbname = "go_test"
-)
+var connection *sql.DB
+
+func init() {
+	psqlconn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
+	                           config.GetDbHost(), config.GetDbPort(), config.GetDbUser(), config.GetDbPassword(), config.GetDbName())
+    db, err := sql.Open("postgres", psqlconn)
+    connection = db
+    checkError(err)	
+}
 
 func GetDb() *sql.DB {
-	psqlconn := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable",
-	                           host, port, user, password, dbname)
-    db, err := sql.Open("postgres", psqlconn)
-    checkError(err)
-
-    return db	
+    return connection
 }
 
 func checkError(err error) {

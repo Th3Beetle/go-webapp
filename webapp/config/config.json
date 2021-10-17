@@ -1,0 +1,10 @@
+{
+	"port" : "8080",
+	"db" : {
+		"host" : "127.0.0.1",
+		"port" : "5432",
+		"user" : "go_test",
+		"password" : "test",
+		"db_name" : "go_test"
+	}
+}

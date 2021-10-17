@@ -23,5 +23,5 @@ func IndexHandler(w http.ResponseWriter, r *http.Request){
     default:
     	panic(err)
     }    
-	w.Write([]byte("<h1>statisticsHandler</h1>" + login + " " + password))
+	w.Write([]byte("<h1>indexHandler</h1>" + login + " " + password))
 }

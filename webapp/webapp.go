@@ -2,8 +2,10 @@ package main
 
 import(
 	"net/http"
+	"strconv"
 
 	"go-webapp/webapp/handlers"
+	"go-webapp/webapp/config"
 )
 
 
@@ -22,5 +24,6 @@ func StartSrv(port string){
 }
 
 func main(){
-	StartSrv("8080")
+	port := config.GetPort()
+	StartSrv(strconv.Itoa(port))
 }
