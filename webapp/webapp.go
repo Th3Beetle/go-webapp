@@ -6,6 +6,7 @@ import(
 
 	"go-webapp/webapp/handlers"
 	"go-webapp/webapp/config"
+	"go-webapp/webapp/wrappers"
 )
 
 
@@ -18,7 +19,9 @@ func StartSrv(port int){
 	mux.HandleFunc("/register", handlers.RegisterHandler)
 	mux.HandleFunc("/statistics", handlers.StatisticsHandler)
 	mux.HandleFunc("/key", handlers.KeyHandler)
-	http.ListenAndServe(":"+strconv.Itoa(port), mux)
+
+	wrappedMux := wrappers.PreprocessRequest(mux)
+	http.ListenAndServe(":"+strconv.Itoa(port), wrappedMux)
 }
 
 func main(){

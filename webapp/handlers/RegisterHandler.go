@@ -9,7 +9,7 @@ import(
 )
 
 func RegisterHandler(w http.ResponseWriter, r *http.Request){
-	db := db.GetDb()
+	
 	switch r.Method {
 	case "GET":
 		http.ServeFile(w, r, "./html/register.html")
@@ -23,6 +23,8 @@ func RegisterHandler(w http.ResponseWriter, r *http.Request){
         	w.Write([]byte("<h1>login or password missing</h1>"))
             return
         }
+
+        db := db.GetDb()
 
         if loginIsOccupied(login, db) {
         	w.Write([]byte("<h1>login is occupied</h1>"))
