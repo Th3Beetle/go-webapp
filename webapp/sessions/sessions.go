@@ -38,7 +38,6 @@ func SetSession() string {
 	    }
     }    
     sessionStorage[token] = new(Session)
-    sessionStorage[token].Is_Authenticated = false
     return token
 }
 
