@@ -27,7 +27,8 @@ func (p *Preprocessor) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     cookie, err := r.Cookie("gsession")
     if err != nil {
         token = sessions.SetSession()
-        http.SetCookie(w, &http.Cookie{Name: "gsession", Value: token, HttpOnly: true})
+        http.SetCookie(w, &http.Cookie{Name: "gsession", Value: token, HttpOnly: true, 
+                                       SameSite: 3})
         http.Redirect(w, r, urlAuthRedirect, http.StatusSeeOther)
         return
     }
@@ -36,7 +37,8 @@ func (p *Preprocessor) ServeHTTP(w http.ResponseWriter, r *http.Request) {
     session, err = sessions.GetSession(token)
     if err != nil {
         token = sessions.SetSession()
-        http.SetCookie(w, &http.Cookie{Name: "gsession", Value: token, HttpOnly: true})
+        http.SetCookie(w, &http.Cookie{Name: "gsession", Value: token, HttpOnly: true, 
+                                       SameSite: 3})
         http.Redirect(w, r, urlAuthRedirect, http.StatusSeeOther)
         return
         }
