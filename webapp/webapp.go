@@ -1,18 +1,17 @@
 package main
 
-import(
+import (
 	"net/http"
 	"strconv"
 
-	"go-webapp/webapp/handlers"
 	"go-webapp/webapp/config"
+	"go-webapp/webapp/handlers"
 	"go-webapp/webapp/wrappers"
 )
 
-
-func StartSrv(port int){
+func StartSrv(port int) {
 	mux := http.NewServeMux()
-    
+
 	mux.HandleFunc("/", handlers.IndexHandler)
 	mux.HandleFunc("/api", handlers.ApiHandler)
 	mux.HandleFunc("/login", handlers.LoginHandler)
@@ -24,7 +23,7 @@ func StartSrv(port int){
 	http.ListenAndServe(":"+strconv.Itoa(port), wrappedMux)
 }
 
-func main(){
+func main() {
 	port := config.GetPort()
 	StartSrv(port)
 }
